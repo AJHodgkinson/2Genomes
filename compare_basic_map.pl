@@ -76,7 +76,7 @@ foreach (@het_array) {
   $seq =~ s/$ref{$_}/\./gi;
   my ($ref,$alt,$prop,$cov) = &countpos($seq,$seq,$alt{$_});
   my @a=split(/_/,$_);
-  print RES "$a[0]\t$a[1]\t$ref{$_}\t$alt{$_}\t$ref\t$alt\t$prop\t$cov\n";
+  print RES "$a[0]\t$a[1]\t$ref{$_}\t$alt{$_}\t$ref\t$alt\t$prop\t$cov\n" if ($cov>0);
 }
 
 close (RES);
@@ -103,7 +103,7 @@ foreach (@het_array) {
   $seq =~ s/$ref{$_}/\./gi;
   my ($ref,$alt,$prop,$cov) = &countpos($seq,$seq,$alt{$_});
   my @a=split(/_/,$_);
-  print RES1 "$a[0]\t$a[1]\t$ref{$_}\t$alt{$_}\t$ref\t$alt\t$prop\t$cov\n";
+  print RES1 "$a[0]\t$a[1]\t$ref{$_}\t$alt{$_}\t$ref\t$alt\t$prop\t$cov\n" if ($cov>0);
 }
 
 close (RES1);
