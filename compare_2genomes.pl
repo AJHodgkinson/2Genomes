@@ -21,17 +21,18 @@ open (OUTF, ">father.bed") || die "Unable to open mother file to write to: $!\n"
 
 while (<SWAP>) {
   my @array = split;
-  my $tag = "chr".$array[0]."_".$array[1];
-  my $tagf = "chr".$array[0]."_".$array[5];
-  my $tagm = "chr".$array[0]."_".$array[6];
+  my $chr=$array[0]; $chr=~s/chr//;
+  my $tag = "chr".$chr."_".$array[1];
+  my $tagf = "chr".$chr."_".$array[5];
+  my $tagm = "chr".$chr."_".$array[6];
   $ref{$tag} = $array[2];
   $alt{$tag} = $array[3];
   $father_swap{$tagf} = $tag;
   $mother_swap{$tagm} = $tag;
   my $fb=$array[5]-1; my $fa = $array[5]+1;
-  print OUTF "chr$array[0]\_paternal\t$fb\t$fa\n";
+  print OUTF "chr$chr\_paternal\t$fb\t$fa\n";
   my $mb=$array[6]-1; my $ma = $array[6]+1;
-  print OUTM "chr$array[0]\_maternal\t$mb\t$ma\n";
+  print OUTM "chr$chr\_maternal\t$mb\t$ma\n";
 }
 
 close (SWAP);
