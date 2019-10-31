@@ -42,7 +42,7 @@ for (1..24) {
     for (my $i=0;$i<@array;$i++) {
       if ($head[$i] eq "$id") {
 	if (($array[$i] =~ /0[\/\|]1/)||($array[$i] =~ /1[\/\|]0/)) {
-	  if ($array[0] =~ /$chr$/) {
+	  if ($array[0] =~ /^(chr)?$chr$/) {
 	    if ((length($array[3])==1)&&(length($array[4])==1)) {
 	    redoloop:
 	      if (($array[1]>$reference[$point])&&($array[1]<$reference[$point+1])) {
